@@ -42,6 +42,35 @@ else{
 ```
 ### Calculo
 Para ambos casos se utiliza el mismo ciclo while para el calculo de fibonacci o el numero impar.
+#### impar
+``` c++
+	if (count % 2 != 0) {
+		std::this_thread::sleep_for(std::chrono::seconds(1));
+		std::cout << "Valor Impar: " << count <<" - PID = "<<getpid()<< td::endl;
+	}
+	else{
+		continue;
+		/*no se hace nada ya que es par el numero*/
+	}
+
+```
+
+```c++
+if (count == 0){//si es el primer numero de la sucecion es 1 
+	 std::this_thread::sleep_for(std::chrono::seconds(1));
+	 std::cout << " Valor Fibonacci: 1 - PPIDE = "<<getpid()<<std::endl;
+  }
+  else {// si no es el primer numero se tiene que calcular el numero
+	  std::this_thread::sleep_for(std::chrono::seconds(1));
+	  for (int i = 0; i < count; i++){
+			z=x+y;
+			x=y;
+			y=z;
+	}
+		std::cout << "Valor Fibonacci: "<<z<<" - PPIDE = "<<getpid()<<std::endl;
+}
+
+```
 En el primer caso se utiliza un ciclo for que calcula el numero de fibonacci por cada ciclo del while.
 En el segundo se calcula el modulo de 2 del numero actual y si es distin a 0 es impar y se hace lo que corresponda.
 ### sleep
