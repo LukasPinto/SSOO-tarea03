@@ -11,13 +11,12 @@ void signal_handler(int signal_num)
 int main(int argc, char *argv[])
 {
 	int count = 0;
-	pid_t pid = fork();
+	pid_t pid = fork(); //se crea un proceso hijo asignandole su valor a una variable para luego identificar cual es cual
 
 	// register the signals and the signal handler
-	std::signal(SIGTERM, signal_handler);
-	std::signal(SIGINT, signal_handler);
-	std::signal(SIGTSTP, signal_handler);
-	std::signal(SIGQUIT, signal_handler);
+	std::signal(SIGINT, signal_handler);/*ctrl+c*/
+	std::signal(SIGTSTP, signal_handler);/*ctrl+z*/
+	std::signal(SIGQUIT, signal_handler);/*ctrl+\*/
 
 	while (++count)
 	{
@@ -31,19 +30,20 @@ int main(int argc, char *argv[])
 			}
 			else
 			{
-				/*no hacer nada*/
+				continue;
+				/*no se hace nada ya que es par el numero*/
 			}
 		}
 		else if (pid != 0)
 		{
 			int x = 0, y = 1, z = 1;
 			//fibonacci
-			if (count == 0)
+			if (count == 0)//si es el primer numero de la sucecion es 1 
 			{
 				std::this_thread::sleep_for(std::chrono::seconds(1));
-				std::cout << " Valor Fibonacci: 1 - PPDIDE = "<<getpid()<<std::endl;
+				std::cout << " Valor Fibonacci: 1 - PPIDE = "<<getpid()<<std::endl;
 			}
-			else
+			else // si no es el primer numero se tiene que calcular el numero
 			{
 				std::this_thread::sleep_for(std::chrono::seconds(1));
 				for (int i = 0; i < count; i++)
@@ -52,13 +52,9 @@ int main(int argc, char *argv[])
 					x=y;
 					y=z;
 				}
-				std::cout << "Valor Fibonacci: "<<z<<" - PPDIDE = "<<getpid()<<std::endl;
+				std::cout << "Valor Fibonacci: "<<z<<" - PPIDE = "<<getpid()<<std::endl;
 			}
-
-			//std::cout << "soy el proce padre :" << getpid() << std::endl;
 		}
-		
-		//std::cout << "Hello ... PID=" << getpid() << std::endl;
 		if (count == 50)// condicion de termino 
 		{
 			std::raise(SIGTERM);// señal de termino para el programa

@@ -33,6 +33,7 @@ $(DIR_OBJ)/%.o: ./src/%.cc
 clean:
 	@$(RM) $(OBJS)
 	@$(RM) *~ core
+	@$(RM) ./main
 
 distclean: clean
 	@$(RM) $(TARGET)
