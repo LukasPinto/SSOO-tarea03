@@ -9,6 +9,12 @@ lukas Pinto <lukas.pinto@alumnos.uv.cl>
 ### señales
 Para la solucion de este problema primero en cuenta el manejo de las señales, las cuales se manejan mediante la funcion
 signal, la cual recibe la señal y luego una funcion que le indica que hacer en el caso de recibir esa señal.
+```c++
+    std::signal(SIGINT, signal_handler);/*ctrl+c*/
+    std::signal(SIGTSTP, signal_handler);/*ctrl+z*/
+    std::signal(SIGQUIT, signal_handler);/*ctrl+\*/
+
+```
 #### signal_handler o manipulador de señal
 dentro de esta función se le dice que hacer al programa en caso de resivir una señal.
 ### Procesos
