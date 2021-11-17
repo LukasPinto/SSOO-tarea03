@@ -5,17 +5,17 @@ RM=rm -f
 TARGET=./main
 
 
-INCLUDES=-I./include -I.
+INCLUDES=-I./src/include -I.
 LDFLAGS=-L/usr/local/lib 
 LDLIBS=-lpthread
 
 CXXFLAGS=-std=c++17 -Wall -O2
 
-DIR_OBJ=objs
+DIR_OBJ=./src/objs
 
-SRCS=$(wildcard *.cc)
+SRCS=$(wildcard ./src/*.cc)
 
-OBJS=$(patsubst %.cc,$(DIR_OBJ)/%.o,$(SRCS))
+OBJS=$(patsubst ./src/%.cc,$(DIR_OBJ)/%.o,$(SRCS))
 
 
 all: $(TARGET)
@@ -25,7 +25,7 @@ $(TARGET): $(OBJS)
 	@echo Linking [$@]
 	@$(CXX) -o $@ $^ $(CXXFLAGS) $(LDLIBS) $(LDFLAGS) 
 
-$(DIR_OBJ)/%.o: %.cc
+$(DIR_OBJ)/%.o: ./src/%.cc
 	@echo Compiling [$@]
 	@mkdir -p $(DIR_OBJ)
 	@$(CXX) -c -o $@ $< $(CXXFLAGS) $(INCLUDES)
