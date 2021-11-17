@@ -2,7 +2,7 @@
 
 ## AUTOR
 
-lukas Pinto <lukas.pinto@alumnos.uv.cl>
+Lukas Pinto <lukas.pinto@alumnos.uv.cl>
 
     
 ## Diseño de solución
