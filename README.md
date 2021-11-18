@@ -54,7 +54,7 @@ Para ambos casos se utiliza el mismo ciclo while para el calculo de fibonacci o 
 	}
 
 ```
-
+#### fibonacci
 ```c++
 if (count == 0){//si es el primer numero de la sucecion es 1 
 	 std::this_thread::sleep_for(std::chrono::seconds(1));
