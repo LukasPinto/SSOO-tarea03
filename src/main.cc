@@ -30,7 +30,6 @@ int main(int argc, char *argv[])
 			}
 			else
 			{
-				continue;
 				/*no se hace nada ya que es par el numero*/
 			}
 		}
