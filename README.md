@@ -49,7 +49,6 @@ Para ambos casos se utiliza el mismo ciclo while para el calculo de fibonacci o 
 		std::cout << "Valor Impar: " << count <<" - PID = "<<getpid()<< td::endl;
 	}
 	else{
-		continue;
 		/*no se hace nada ya que es par el numero*/
 	}
 
